@@ -1,0 +1,9 @@
+--- a/docs/README.md
++++ b/docs/README.md
+@@ -1,5 +1,5 @@
+ # Installation Guide
+ 
+ Run the following command:
+-```bash
++```sh
+ pip install reviewlens

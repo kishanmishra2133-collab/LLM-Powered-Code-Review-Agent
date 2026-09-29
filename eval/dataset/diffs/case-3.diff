@@ -1,0 +1,5 @@
+--- a/auth/login.py
++++ b/auth/login.py
+@@ -10 +10 @@ def find_user(db, username):
+-    return db.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
++    return db.execute(f"SELECT * FROM users WHERE username = '{username}'").fetchone()

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "example-bug",
+    "title": "Fix off-by-one in pagination slice end calculation",
+    "repo": "psf/requests",
+    "pr_url": "https://github.com/psf/requests/pull/6000",
+    "description": "Concrete bug catch: models detected slice end calculation omitting final item."
+  },
+  {
+    "id": "example-clean",
+    "title": "Update README installation steps and badges",
+    "repo": "pallets/flask",
+    "pr_url": "https://github.com/pallets/flask/pull/5000",
+    "description": "Clean PR with 0 findings: demonstrates high precision over noisy nitpicks."
+  },
+  {
+    "id": "example-large",
+    "title": "Refactor auth and bump dependencies",
+    "repo": "tiangolo/fastapi",
+    "pr_url": "https://github.com/tiangolo/fastapi/pull/4000",
+    "description": "Large PR: automatically filters package-lock.json noise and stays under budget."
+  }
+]

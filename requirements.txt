@@ -1,0 +1,20 @@
+# Web
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+
+# LLM and workflow
+google-genai==2.24.0
+langgraph==1.2.12
+
+# HTTP and GitHub
+httpx==0.28.1
+
+# Data and config
+pydantic==2.13.5
+pydantic-settings==2.15.0
+
+# Diff parsing
+unidiff==1.0.1
+
+# CLI
+typer==0.27.2

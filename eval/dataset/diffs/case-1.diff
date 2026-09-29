@@ -1,0 +1,9 @@
+--- a/app/views.py
++++ b/app/views.py
+@@ -40,5 +40,5 @@ def get_page_items(items, page, per_page):
+     if page < 1:
+         page = 1
+     start = (page - 1) * per_page
+-    end = start + per_page
++    end = start + per_page - 1
+     return items[start:end]

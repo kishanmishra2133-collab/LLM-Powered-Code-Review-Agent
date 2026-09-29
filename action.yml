@@ -1,0 +1,49 @@
+name: "ReviewLens"
+description: "High-precision LLM code review agent powered by LangGraph and Gemini"
+author: "ReviewLens Team"
+branding:
+  icon: "check-circle"
+  color: "blue"
+
+inputs:
+  github_token:
+    description: "GitHub Token for posting review comments"
+    required: false
+    default: ${{ github.token }}
+  gemini_api_key:
+    description: "Gemini API Key"
+    required: true
+  model:
+    description: "Gemini Model ID to use"
+    required: false
+    default: "gemini-3-flash-preview"
+  verify:
+    description: "Enable adversarial verification step"
+    required: false
+    default: "true"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install ReviewLens
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ${{ github.action_path }}/requirements.txt
+        pip install -e ${{ github.action_path }}
+
+    - name: Run ReviewLens
+      shell: bash
+      env:
+        GITHUB_EVENT_PATH: ${{ github.event_path }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_GEMINI_API_KEY: ${{ inputs.gemini_api_key }}
+        INPUT_MODEL: ${{ inputs.model }}
+        INPUT_VERIFY: ${{ inputs.verify }}
+      run: |
+        python -m reviewlens.adapters.action
